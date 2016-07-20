@@ -71,14 +71,13 @@ body{
 }
 
 /* SEARCH BOX START*/
-#input-container{
-	display: block;
-	width: 305px;
-	height: 45px;
-	background: none;
-	margin-top: 5px;
-}
+.pac-container{
+	margin-top: 2px;
+	font-family: "Josefin Sans"
+;}
 .controls {
+	position: absolute;
+	margin-top: 75px;
 	border: 1px solid transparent;
 	border-radius: 2px 0 0 2px;
 	box-sizing: border-box;
@@ -89,7 +88,7 @@ body{
 }
 
 #pac-input {
-	width: 300px;
+	/*width: 300px;
 	height: 40px;
 	margin-top: 120px;
 	position: absolute;
@@ -103,7 +102,22 @@ body{
 	color: rgb(50,50,50);
 	font-weight: 300;
 	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;*/
+	/*position: relative;*/
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 20px;
+	color: rgb(50,50,50);
+	font-weight: 300;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
 	text-overflow: ellipsis;
+	width: 300px;
+	height: 40px;
+	/*position: absolute;*/
+	/*display: flex;
+	flex-direction: column;*/
+	z-index: 2;
 }
 
 #pac-input:focus {
@@ -120,8 +134,18 @@ body{
 	width: 345px;
 }
 /* SEARCH BOX END */
+#mapAddBtn {
+	position: absolute;
+	/*display: initial;*/
+	bottom: 20%;
+	left: 0;
+	right: 0;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 #seePrompt{
-	display: none;
+	/*display: none;*/
 	position: absolute;
 	width: 300px;
 	height: 75px;
@@ -139,36 +163,39 @@ body{
 }
 
 #addPrompt {
-	display: none;
+	/*display: none;*/
 	position: absolute;
 	width: 100vw;
-	height: 110px;
-	background-color: rgba(38, 70, 83, 0.95);
+	height: 65px;
+	background-color: rgba(38, 70, 83, 0.65);
 	color: #9bd130;
 	box-shadow: 0px 2px 2px grey;
-	/*padding: 5px;*/
+	padding: 5px;
 }
 
-.form-overlay {
+.form-overlay , .form-comments {
 	width: 50vw;
-	height: 100%;
+	height: 92vh;
 	background-color: rgba(38, 70, 83, 0.95);
 	padding: 15px;
 	position: absolute;
-	top: 0;
+	bottom: 4%;
 	z-index: 1;
 	left: 0;
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
-	display: flex;
+	display: initial;
    	align-items: center;
-   	flex-direction: column;
+   	/*flex-direction: column;*/
 	text-shadow: 1px 1px 2px black;
+	box-shadow: 2px 0px 2px black;
 }
 
 #homePage-overlay {
 	width: 100vw;
+	height: 100vh;
+	top: 0;
 	line-height: 1.4;
 }
 
@@ -181,12 +208,18 @@ body{
 }
 
 #addEvent {
+	background-color: #fff8e0;
+	color: #264653;
 	margin-top: 15px;
 	width: 280px;
 	height: 70px;
 	border-radius: 20px;
 	box-shadow: 2px 2px 2px black;
-	background-color: #fff8e0;
+}
+
+#mapExit-button {
+	position: absolute;
+	bottom: 4%;
 }
 
 #pinDrop-window {
@@ -228,14 +261,8 @@ body{
 }
 /* HOME PAGE END */
 
-.form-overlay > h3, p, div, button{
+.form-overlay , .form-comments > h3, p, div, button{
 	z-index: 2;
-}
-
-#userAge {
-	/*flex-direction: unset;*/
-	/*display: table-cell;*/
-	/*display: initial;*/
 }
 
 .buttons{
@@ -264,11 +291,12 @@ body{
 }
 
 .blueBtn{
-	background-color: rgba(103,204, 222, 0.65);
+	background-color: rgba(103,204, 222, 0.95);
 }
 
 .greenBtn{
 	background-color: rgba(155, 209, 48, 0.95);
+	color: #264653;
 }
 
 .answerBtn{
@@ -276,7 +304,6 @@ body{
 	color: #264653;
 	width: 250px;
 	height: 45px;
-	box-shadow: none;
 	border: none;
 	margin-bottom: 7px;
 }
@@ -285,23 +312,36 @@ body{
 	color: #264653;
 }
 
+#userAge {
+	display: initial;
+	/*flex-direction: row;*/
+}
+
 .ageBtn {
 	width: 100px;
+	display: inline-block;
+}
+
+#relationship {
 	display: initial;
-	flex-direction: unset;
+}
+
+.rBtn {
+	width: 135px;
 }
 
 .commentBtn{
 	border: none;
-	margin-top: 6px;
+	/*margin-top: 6px;*/
 }
 
-.formControls{
-	position: relative;
-	display: table;
+.flowControls{
 	width: 280px;
-	margin-top: 11px;
-	padding: 10px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 15px auto 0px;
+	bottom: 4%;
 }
 
 .backBtn{
@@ -314,14 +354,19 @@ body{
 	display: table-cell; 
     vertical-align: middle;
 	float: left;
+	-webkit-filter: drop-shadow(2px 2px 2px black);
+	filter: drop-shadow(2px 2px 2px black);
 }
 
 .exitBtn{
-	position: absolute;
+	/*position: absolute;*/
 	width: 40px;
 	height: 40px;
-	background-color: #fff8e0;
+	background: url("images/close.png");
+	background-size: 100%;
 	color: #fff8e0;
+	-webkit-filter: drop-shadow(1px 1px 2px black);
+	filter: drop-shadow(2px 2px 2px black);
 	border-radius: 100%;
 	padding: 7px;
 	display: table-cell; 
@@ -391,64 +436,42 @@ body{
 	margin-bottom: 3px;
 }
 
-.btn-group-controls {
-	width: 300px;
-	position: absolute;
-   	left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-	bottom: 5%;
-	word-spacing: 40px;
-	text-align: center;
-}
-
-#smallText {
-	font-size: 90%;
-}
-
-.btn-group .end-comment {
-	white-space: normal;
-	width: 150px;
-	height: 100%;
-	font-size: 110%;
-	margin-bottom: 30px;
-}
-
-.endGroup-btns .btn {
-	white-space: normal;
-	width:140px;
-	height: 110px;
-	font-size: 100%;
-}
-
 .form-group {
 	width: 600px;
 }
 
-.form-control {
-	width: 500px;
+.form-control { /*textarea */
+	width: 88%;
 	font-size: 100%;
-	position: absolute;
+	/*position: absolute;*/
 	left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-} /*comment box's'*/
-
-.comment-buttons {
-	width: 326px;
-	position: absolute;
-	left: 0;
-	right: 0;
-    margin-left: auto;
-    margin-right: auto;
-	bottom: 20%;
 }
 
-.comment-buttons .btn {
-	width: 160px;
-	white-space: normal;
+.form-overlay , .form-Comments > p{
+	max-width: 600px;
+}
+
+#confirmExit {
+	display: flex;
+   	align-items: center;
+   	justify-content: center;
+   	flex-direction: column;
+}
+
+#confirmExit > .blueBtn {
+	height: 55px;
+	font-size: 115%;
+	font-weight: bold;
+}
+
+#confirmSubmit {
+	display: flex;
+   	align-items: center;
+   	justify-content: center;
+   	flex-direction: column;
 }
 
 #form-thankYou {
@@ -458,29 +481,29 @@ body{
    	flex-direction: column;
 }
 
-#annieCannons a {
-	color: lightseagreen;
+#annieC {
+	width: 240px;
+	height: 95px;
+	padding: 10px 35px;
+	background-color: #fff8e0;
+	color: #264653;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px black;
+	margin-top: 10%;
+	text-decoration: none;
 }
 
-#form-end {
-	line-height: 1.4;
+#annieC h4 {
+	text-shadow: none;
+	font-weight: bold;
 }
 
-#form-end p {
-	max-width: 650px;
-}
-
-.form-overlay p{
-	max-width: 600px;
-}
 
 @media screen and (max-width: 700px) {
-	.forn-overlay {
+	.form-overlay , .form-comments {
 		width: 100vw;
-	}
-
-	.gm-style-iw{
-		max-height: 260px;
+		height: 100vh;
+		top: 0;
 	}
 
 	#pac-input{
@@ -499,14 +522,6 @@ body{
 	.form-group {
 		width: 100%;
 		text-align: center;
-	}
-	.form-control {
-		width: 300px;
-		position: absolute;
-   		left: 0;
-    	right: 0;
-    	margin-left: auto;
-    	margin-right: auto;
 	}
 
 	.comment-buttons {
