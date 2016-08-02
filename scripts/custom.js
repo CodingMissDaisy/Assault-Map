@@ -4,11 +4,7 @@ $(document).ready(function(){
   $(".form-overlay").hide();
   $(".form-comments").hide();
   $(".elements").hide();
-  $("#transparent-overlay").hide();
   $("#homePage-overlay").show();
-  // $("#dateRange1").show();
-  
-
 
 
 /* HAMBURGER OVERLAY   HAMBURGER OVERLAY */
@@ -17,13 +13,13 @@ $(document).ready(function(){
     fadeThisOut($(".elements"));
   });
 
-  $("#hamburger-overlay").click(function(){
+  $("#exitHamburger").click(function(){
     fadeThisOut($("#hamburger-overlay"));
     fadeThisIn($(".seeMap-Elements"));
   });
 
   $("#hamburgerAddBtn").click(function(){
-    // fadeThisOut($("#hamburger-overlay"));
+    fadeThisOut($("#hamburger-overlay"));
     fadeThisOut($(".seeMap-Elements"));
     fadeThisIn($("#locationForm"));
   });
@@ -31,6 +27,7 @@ $(document).ready(function(){
   $("#seeMap").on("click", function(){
     fadeThisOut($("#homePage-overlay"));
     fadeThisIn($(".seeMap-Elements"));
+    $("#seePrompt").delay(12000).fadeOut(500);
     mapObject.addingPin = false;
   });
 
@@ -43,12 +40,6 @@ $(document).ready(function(){
     fadeThisOut($(".seeMap-Elements"));
     fadeThisIn($("#locationForm"));
   });
-
-  $("#exitLocationspec").on("click", function(){
-    fadeThisOut($("#locationForm"));
-    fadeThisIn($("#homePage-overlay"));
-  });
-
 
 
 /* USER DENYS TO ADD MORE DETAILS */
@@ -90,8 +81,6 @@ $(document).ready(function(){
  });
 
  $(".exitBtn").click(function(){
-  //  currentPage = $(this).parent().parent();
-  //  currentPage.fadeOut("slow");
    fadeThisIn($("#confirmExit"));
  });
 
@@ -121,7 +110,7 @@ $(document).ready(function(){
   });
 
 
-  $("#dateBtn1").click(function(){
+  $(".dateBtn1").click(function(){
    currentPage = $(this).parent();
    nextPage = $("#dateRange1");
    currentPage.fadeOut(1500);
@@ -130,7 +119,7 @@ $(document).ready(function(){
    userObject[userKey] = $(this).val();
  });
 
- $("#dateBtn2").click(function(){
+ $(".dateBtn2").click(function(){
    currentPage = $(this).parent();
    nextPage = $("#dateRange2");
    currentPage.fadeOut(1500);
@@ -189,7 +178,7 @@ $("#date2-backBtn").click(function(){
  });
 
  /* SCHOOL CAMPUS CONTROL BUTTONS */
-  $("#notCampusBtn").click(function(){
+  $(".notCampusBtn").click(function(){
     currentPage = $(this).parent();
     nextPage = $("#reported");
     currentPage.fadeOut(1500);
@@ -248,28 +237,20 @@ $("#date2-backBtn").click(function(){
    nextPage = $("#homePage-overlay");
    currentPage.fadeOut(1500);
    nextPage.fadeIn(1500);
-   $("#transparent-overlay").hide();
   });
 
   $("#submitBackBtn").click(function(){
    currentPage = $(this).parent().parent();
-   previousPage = $("#reported");
    currentPage.fadeOut(1500);
-   previousPage.fadeIn(1500);
   });
 
   /* CONFRIM EXIT PAGE ************* */
   $("#exitSubmit").click(function(){
-   currentPage = $(this).parent();
-   $(".form-overlay").fadeOut(1500);
    nextPage = $("#confirmSubmit");
-   currentPage.fadeOut(1500);
    nextPage.fadeIn(1500);
   });
 
   $("#exitDelete").click(function(){
-    // currentPage = $(this).parent();
-    // currentPage.fadeOut(1500);
     $(".form-overlay").fadeOut(1500);
     $(".seeMap-Elements").fadeIn(1500);
     $("#transparent-overlay").hide();
@@ -285,7 +266,6 @@ $("#date2-backBtn").click(function(){
   $("#exitThanks").click(function(){
     $(".form-overlay").fadeOut(1300);
     $(".seeMap-Elements").fadeIn(1500);
-    $("#transparent-overlay").hide();
     mapObject.addingPin = false;
   });
 }); /* DOCUMENT.READY(FUNCTION() */
